@@ -1,0 +1,43 @@
+﻿@model RoboClient.Models.Robos.Robo
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Robo</h4>
+    <hr />
+    <dl class="dl-horizontal"></dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar para a lista", "Index")
+</p>
+
+<p>@Model.Id</p>
+
+<ul>
+    <li>
+        Cabeça
+        <ul>
+            <li>Rotação: @Model.Cabeca.Rotacao</li>
+            <li>Inclinação: @Model.Cabeca.Rotacao</li>
+        </ul>
+    </li>
+    <li>
+        Braço direito
+        <ul>
+            <li>Rotação pulso: @Model.PulsoDireitoPosicao</li>
+            <li>Posição cotovelo: @Model.CotoveloDireitoPosicao</li>
+        </ul>
+    </li>
+    <li>
+        Braço esquerdo
+        <ul>
+            <li>Rotação pulso: @Model.PulsoEsquerdoPosicao</li>
+            <li>Posição cotovelo: @Model.CotoveloEsquerdoPosicao</li>
+        </ul>
+    </li>
+</ul>

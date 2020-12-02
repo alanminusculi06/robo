@@ -1,0 +1,27 @@
+﻿@model IEnumerable<RoboClient.Models.Robos.Robo>
+
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h2>Lista</h2>
+
+<p>
+    @Html.ActionLink("Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>ID</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Id |
+            @Html.ActionLink("Editar", "Edit", new {id = item.Id}) |
+            @Html.ActionLink("Visualizar", "Details", new {id = item.Id}) |            
+        </td>
+    </tr>
+}
+
+</table>
