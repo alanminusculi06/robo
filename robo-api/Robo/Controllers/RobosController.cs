@@ -50,15 +50,15 @@ namespace Robo.Controllers
         private void AtualizarBracoDireito(Models.Robo robo, Models.Robo novo)
         {
             if (robo == null || novo == null) return;
-            robo.BracoDireito.MovimentarCotovelo(novo.BracoDireito.GetCotovelo().Posicao);
-            robo.BracoDireito.MovimentarPulso(novo.BracoDireito.GetPulso().Posicao);
+            robo.BracoDireito.MovimentarCotovelo(novo.BracoDireito.Cotovelo.Posicao);
+            robo.BracoDireito.MovimentarPulso(novo.BracoDireito.Pulso.Posicao);
         }
 
         private void AtualizarBracoEsquerdo(Models.Robo robo, Models.Robo novo)
         {
             if (robo == null || novo == null) return;
-            robo.BracoEsquerdo.MovimentarCotovelo(novo.BracoEsquerdo.GetCotovelo().Posicao);
-            robo.BracoEsquerdo.MovimentarPulso(novo.BracoEsquerdo.GetPulso().Posicao);
+            robo.BracoEsquerdo.MovimentarCotovelo(novo.BracoEsquerdo.Cotovelo.Posicao);
+            robo.BracoEsquerdo.MovimentarPulso(novo.BracoEsquerdo.Pulso.Posicao);
         }
     }
 }

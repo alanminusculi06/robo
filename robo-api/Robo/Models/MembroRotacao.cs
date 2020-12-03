@@ -13,7 +13,7 @@ namespace Robo.Models
             OpcoesRotacao = opcoesRotacao;
         }
 
-        public int Rotacao { get; protected set; }
+        public int Rotacao { get; set; }
 
         public virtual void SetarRotacao(int rotacao)
         {

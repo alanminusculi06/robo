@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "d17106a3-69ad-4691-ab77-ac00da2981f8",
+		"name": "RoboApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{Port}}/api/robo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{Port}}",
+					"path": [
+						"api",
+						"robo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{Port}}/api/robo/{{ID}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{Port}}",
+					"path": [
+						"api",
+						"robo",
+						"{{ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"Id\":\"\",\r\n   \"Cabeca\":{      \r\n      \"Posicao\":2,\r\n      \"Rotacao\":3\r\n   },\r\n   \"BracoDireito\":{      \r\n      \"Pulso\":{         \r\n         \"Posicao\":3\r\n      },\r\n      \"Cotovelo\":{         \r\n         \"Posicao\":1\r\n      }\r\n   },\r\n   \"BracoEsquerdo\":{      \r\n      \"Pulso\":{         \r\n         \"Posicao\":3\r\n      },\r\n      \"Cotovelo\":{         \r\n         \"Posicao\":1\r\n      }\r\n   },\r\n   \"CabecaPosicao\":2,\r\n   \"CabecaRotacao\":3,\r\n   \"PulsoDireitoPosicao\":3,\r\n   \"CotoveloDireitoPosicao\":1,\r\n   \"PulsoEsquerdoPosicao\":3,\r\n   \"CotoveloEsquerdoPosicao\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{Port}}/api/robo/{{ID}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{Port}}",
+					"path": [
+						"api",
+						"robo",
+						"{{ID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

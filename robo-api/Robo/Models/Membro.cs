@@ -12,7 +12,7 @@ namespace Robo.Models
             OpcoesPosicao = opcoesPosicao;
         }
 
-        public int Posicao { get; protected set; }
+        public int Posicao { get; set; }
 
         public void SetarPosicao(int posicao)
         {

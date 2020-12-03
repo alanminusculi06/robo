@@ -8,13 +8,10 @@
             Pulso = Pulso.Criar();
         }
 
-        public Cotovelo Cotovelo { get; }
-        public Pulso Pulso { get; }
+        public Cotovelo Cotovelo { get; set; }
+        public Pulso Pulso { get; set; }
 
-        public static Braco Criar() => new Braco();
-
-        public Pulso GetPulso() => Pulso;
-        public Cotovelo GetCotovelo() => Cotovelo;
+        public static Braco Criar() => new Braco();        
 
         public void MovimentarPulso(int posicao)
         {

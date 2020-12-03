@@ -9,8 +9,8 @@ namespace RoboClient.Services
 {
     public class RoboApiService
     {
-        private const string BaseAddress = "http:127.0.0.1";
-        private const int Port = 5000;
+        private const string BaseAddress = "http://127.0.0.1";
+        private const int Port = 61231;
         private readonly HttpClient _client;
 
         public RoboApiService()

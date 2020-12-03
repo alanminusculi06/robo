@@ -1,7 +1,6 @@
 ﻿using RoboClient.Models.Robos;
 using RoboClient.Services;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -24,12 +23,12 @@ namespace RoboClient.Controllers
             return View(_robos);
         }
 
-        public ActionResult Details(string id)
+        public async Task<ActionResult> Details(string id)
         {
             if (string.IsNullOrEmpty(id))
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var robo = _robos.FirstOrDefault(r => r.Id.Equals(id));
+            var robo = await _api.GetAsync<Robo>(id);
             if (robo == null)
                 return HttpNotFound();
 
@@ -43,7 +42,7 @@ namespace RoboClient.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<ActionResult> EditAsync(string id)
+        public async Task<ActionResult> Edit(string id)
         {
             if (string.IsNullOrEmpty(id))
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

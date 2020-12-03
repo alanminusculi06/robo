@@ -12,10 +12,10 @@ namespace Robo.Tests
             var braco = Braco.Criar();
 
             Assert.IsNotNull(braco);
-            Assert.IsNotNull(braco.GetPulso());
-            Assert.IsNotNull(braco.GetCotovelo());
-            Assert.AreEqual(braco.GetCotovelo().Posicao, Cotovelo.EmRepouso);
-            Assert.AreEqual(braco.GetPulso().Posicao, Pulso.EmRepouso);
+            Assert.IsNotNull(braco.Pulso);
+            Assert.IsNotNull(braco.Cotovelo);
+            Assert.AreEqual(braco.Cotovelo.Posicao, Cotovelo.EmRepouso);
+            Assert.AreEqual(braco.Pulso.Posicao, Pulso.EmRepouso);
         }
 
         [TestMethod]
@@ -24,7 +24,7 @@ namespace Robo.Tests
             var braco = Braco.Criar();
 
             braco.MovimentarPulso(Pulso.QuarentaECincoGraus);
-            Assert.AreEqual(braco.GetPulso().Posicao, Pulso.EmRepouso);
+            Assert.AreEqual(braco.Pulso.Posicao, Pulso.EmRepouso);
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace Robo.Tests
             braco.MovimentarCotovelo(Cotovelo.FortementeContraido);
 
             braco.MovimentarPulso(Pulso.QuarentaECincoGraus);
-            Assert.AreEqual(braco.GetPulso().Posicao, Pulso.QuarentaECincoGraus);
+            Assert.AreEqual(braco.Pulso.Posicao, Pulso.QuarentaECincoGraus);
         }
     }
 }

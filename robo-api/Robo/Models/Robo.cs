@@ -12,10 +12,10 @@ namespace Robo.Models
             BracoDireito = Braco.Criar();
         }
 
-        public string Id { get; }
-        public Cabeca Cabeca { get; }
-        public Braco BracoEsquerdo { get; }
-        public Braco BracoDireito { get; }
+        public string Id { get; set; }
+        public Cabeca Cabeca { get; set; }
+        public Braco BracoEsquerdo { get; set; }
+        public Braco BracoDireito { get; set; }
 
         public static Robo Criar() => new Robo();
     }
