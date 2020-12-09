@@ -1,35 +1,35 @@
-﻿namespace Robo.Models
+﻿using Robo.Infraestrutura.Enums.Cabecas;
+
+namespace Robo.Models
 {
     public class Cabeca : MembroRotacao
     {
-        public static int ParaCima = 1;
-        public static int EmRepouco = 2;
-        public static int ParaBaixo = 3;
-
-        public static int RotacaoNoventaGrausNegativo = 1;
-        public static int RotacaoQuarentaECincoGrausNegativo = 2;
-        public static int RotacaoEmRepouso = 3;
-        public static int RotacaoQuarentaECincoGraus = 4;
-        public static int RotacaoNoventaGraus = 5;
-
         public Cabeca()
-            : base(new[] { ParaCima, EmRepouco, ParaBaixo },
-                new[]
-                {
-                    RotacaoNoventaGrausNegativo, RotacaoQuarentaECincoGrausNegativo, RotacaoEmRepouso,
-                    RotacaoQuarentaECincoGraus, RotacaoNoventaGraus
-                })
+            : base(
+                new[] {
+                    (int)CabecaInclinacao.ParaCima,
+                    (int)CabecaInclinacao.EmRepouso,
+                    (int)CabecaInclinacao.ParaBaixo },
+                new[] {
+                    (int)CabecaRotacao.NoventaGrausNegativo,
+                    (int)CabecaRotacao.QuarentaECincoGrausNegativo,
+                    (int)CabecaRotacao.EmRepouso,
+                    (int)CabecaRotacao.QuarentaECincoGraus,
+                    (int)CabecaRotacao.NoventaGraus }
+                )
         {
-            Posicao = EmRepouco;
-            Rotacao = RotacaoEmRepouso;
+            Posicao = (int)CabecaInclinacao.EmRepouso;
+            Rotacao = (int)CabecaRotacao.EmRepouso;
         }
 
-        public static Cabeca Criar() => new Cabeca();        
+        public static Cabeca Criar() => new Cabeca();
 
-        public override void SetarRotacao(int rotacao)
+        public void SetarRotacao(CabecaRotacao rotacao)
         {
-            if (Posicao == ParaBaixo) return;
-            base.SetarRotacao(rotacao);
+            if (Posicao == (int)CabecaInclinacao.ParaBaixo) return;
+            SetarRotacao((int)rotacao);
         }
+
+        public void SetarInclinacao(CabecaInclinacao inclinacao) => SetarPosicao((int)inclinacao);
     }
 }

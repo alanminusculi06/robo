@@ -1,22 +1,25 @@
-﻿namespace Robo.Models
+﻿using Robo.Infraestrutura.Enums.Bracos;
+
+namespace Robo.Models
 {
     public class Pulso : Membro
     {
-        public static int NoventaGrausNegativo = 1;
-        public static int QuarentaECincoGrausNegativo = 2;
-        public static int EmRepouso = 3;
-        public static int QuarentaECincoGraus = 4;
-        public static int NoventaGraus = 5;
-        public static int CentoETrintaECincoGraus = 6;
-        public static int CentoEOitentaGraus = 7;
-
         private Pulso()
-            : base(new[] { NoventaGrausNegativo, QuarentaECincoGrausNegativo, EmRepouso, QuarentaECincoGraus, NoventaGraus, CentoETrintaECincoGraus, CentoEOitentaGraus })
+            : base(new[] {
+                (int)PulsoRotacao.NoventaGrausNegativo,
+                (int)PulsoRotacao.QuarentaECincoGrausNegativo,
+                (int)PulsoRotacao.EmRepouso,
+                (int)PulsoRotacao.QuarentaECincoGraus,
+                (int)PulsoRotacao.NoventaGraus,
+                (int)PulsoRotacao.CentoETrintaECincoGraus,
+                (int)PulsoRotacao.CentoEOitentaGraus }
+            )
         {
-            Posicao = EmRepouso;
+            Posicao = (int)PulsoRotacao.EmRepouso;
         }
 
         public static Pulso Criar() => new Pulso();
 
+        public void SetarPosicao(PulsoRotacao rotacao) => SetarPosicao((int)rotacao);
     }
 }

@@ -14,7 +14,7 @@ namespace Robo.Models
 
         public int Posicao { get; set; }
 
-        public void SetarPosicao(int posicao)
+        protected void SetarPosicao(int posicao)
         {
             if (!OpcoesPosicao.Contains(posicao)) return;
             var index = Array.IndexOf(OpcoesPosicao, posicao);

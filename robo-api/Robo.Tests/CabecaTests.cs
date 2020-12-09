@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Robo.Infraestrutura.Enums.Cabecas;
 using Robo.Models;
 
 namespace Robo.Tests
@@ -12,8 +13,8 @@ namespace Robo.Tests
             var cabeca = Cabeca.Criar();
 
             Assert.IsNotNull(cabeca);
-            Assert.AreEqual(cabeca.Posicao, Cabeca.EmRepouco);
-            Assert.AreEqual(cabeca.Rotacao, Cabeca.RotacaoEmRepouso);
+            Assert.AreEqual(cabeca.Posicao, (int)CabecaInclinacao.EmRepouso);
+            Assert.AreEqual(cabeca.Rotacao, (int)CabecaRotacao.EmRepouso);
         }
 
         [TestMethod]
@@ -21,23 +22,23 @@ namespace Robo.Tests
         {
             var cabeca = Cabeca.Criar();
 
-            cabeca.SetarRotacao(Cabeca.RotacaoQuarentaECincoGraus);
-            Assert.AreEqual(cabeca.Rotacao, Cabeca.RotacaoQuarentaECincoGraus);
+            cabeca.SetarRotacao(CabecaRotacao.QuarentaECincoGraus);
+            Assert.AreEqual(cabeca.Rotacao, (int)CabecaRotacao.QuarentaECincoGraus);
 
-            cabeca.SetarRotacao(Cabeca.RotacaoNoventaGraus);
-            Assert.AreEqual(cabeca.Rotacao, Cabeca.RotacaoNoventaGraus);
+            cabeca.SetarRotacao(CabecaRotacao.NoventaGraus);
+            Assert.AreEqual(cabeca.Rotacao, (int)CabecaRotacao.NoventaGraus);
 
-            cabeca.SetarRotacao(Cabeca.RotacaoQuarentaECincoGraus);
-            Assert.AreEqual(cabeca.Rotacao, Cabeca.RotacaoQuarentaECincoGraus);
+            cabeca.SetarRotacao(CabecaRotacao.QuarentaECincoGraus);
+            Assert.AreEqual(cabeca.Rotacao, (int)CabecaRotacao.QuarentaECincoGraus);
 
-            cabeca.SetarRotacao(Cabeca.RotacaoEmRepouso);
-            Assert.AreEqual(cabeca.Rotacao, Cabeca.RotacaoEmRepouso);
+            cabeca.SetarRotacao(CabecaRotacao.EmRepouso);
+            Assert.AreEqual(cabeca.Rotacao, (int)CabecaRotacao.EmRepouso);
 
-            cabeca.SetarRotacao(Cabeca.RotacaoQuarentaECincoGrausNegativo);
-            Assert.AreEqual(cabeca.Rotacao, Cabeca.RotacaoQuarentaECincoGrausNegativo);
+            cabeca.SetarRotacao(CabecaRotacao.QuarentaECincoGrausNegativo);
+            Assert.AreEqual(cabeca.Rotacao, (int)CabecaRotacao.QuarentaECincoGrausNegativo);
 
-            cabeca.SetarRotacao(Cabeca.RotacaoNoventaGrausNegativo);
-            Assert.AreEqual(cabeca.Rotacao, Cabeca.RotacaoNoventaGrausNegativo);
+            cabeca.SetarRotacao(CabecaRotacao.NoventaGrausNegativo);
+            Assert.AreEqual(cabeca.Rotacao, (int)CabecaRotacao.NoventaGrausNegativo);
         }
 
         [TestMethod]
@@ -45,10 +46,10 @@ namespace Robo.Tests
         {
             var cabeca = Cabeca.Criar();
 
-            cabeca.SetarPosicao(Cabeca.ParaBaixo);
+            cabeca.SetarInclinacao(CabecaInclinacao.ParaBaixo);
 
-            cabeca.SetarRotacao(Cabeca.RotacaoQuarentaECincoGraus);
-            Assert.AreEqual(cabeca.Rotacao, Cabeca.RotacaoEmRepouso);
+            cabeca.SetarRotacao(CabecaRotacao.QuarentaECincoGraus);
+            Assert.AreEqual(cabeca.Rotacao, (int)CabecaRotacao.EmRepouso);
         }
 
         [TestMethod]
@@ -56,8 +57,8 @@ namespace Robo.Tests
         {
             var cabeca = Cabeca.Criar();
 
-            cabeca.SetarRotacao(10);
-            Assert.AreEqual(cabeca.Rotacao, Cabeca.RotacaoEmRepouso);
+            cabeca.SetarRotacao((CabecaRotacao)10);
+            Assert.AreEqual(cabeca.Rotacao, (int)CabecaRotacao.EmRepouso);
         }
 
         [TestMethod]
@@ -65,8 +66,8 @@ namespace Robo.Tests
         {
             var cabeca = Cabeca.Criar();
 
-            cabeca.SetarRotacao(Cabeca.RotacaoNoventaGraus);
-            Assert.AreEqual(cabeca.Rotacao, Cabeca.RotacaoEmRepouso);
+            cabeca.SetarRotacao(CabecaRotacao.NoventaGraus);
+            Assert.AreEqual(cabeca.Rotacao, (int)CabecaRotacao.EmRepouso);
         }
 
         [TestMethod]
@@ -74,14 +75,14 @@ namespace Robo.Tests
         {
             var cabeca = Cabeca.Criar();
 
-            cabeca.SetarPosicao(Cabeca.ParaBaixo);
-            Assert.AreEqual(cabeca.Posicao, Cabeca.ParaBaixo);
+            cabeca.SetarInclinacao(CabecaInclinacao.ParaBaixo);
+            Assert.AreEqual(cabeca.Posicao, (int)CabecaInclinacao.ParaBaixo);
 
-            cabeca.SetarPosicao(Cabeca.EmRepouco);
-            Assert.AreEqual(cabeca.Posicao, Cabeca.EmRepouco);
+            cabeca.SetarInclinacao(CabecaInclinacao.EmRepouso);
+            Assert.AreEqual(cabeca.Posicao, (int)CabecaInclinacao.EmRepouso);
 
-            cabeca.SetarPosicao(Cabeca.ParaCima);
-            Assert.AreEqual(cabeca.Posicao, Cabeca.ParaCima);
+            cabeca.SetarInclinacao(CabecaInclinacao.ParaCima);
+            Assert.AreEqual(cabeca.Posicao, (int)CabecaInclinacao.ParaCima);
         }
 
         [TestMethod]
@@ -89,8 +90,8 @@ namespace Robo.Tests
         {
             var cabeca = Cabeca.Criar();
 
-            cabeca.SetarPosicao(5);
-            Assert.AreEqual(cabeca.Posicao, Cabeca.EmRepouco);
+            cabeca.SetarInclinacao((CabecaInclinacao)5);
+            Assert.AreEqual(cabeca.Posicao, (int)CabecaInclinacao.EmRepouso);
         }
 
         [TestMethod]
@@ -98,11 +99,11 @@ namespace Robo.Tests
         {
             var cabeca = Cabeca.Criar();
 
-            cabeca.SetarPosicao(Cabeca.ParaBaixo);
-            Assert.AreEqual(cabeca.Posicao, Cabeca.ParaBaixo);
+            cabeca.SetarInclinacao(CabecaInclinacao.ParaBaixo);
+            Assert.AreEqual(cabeca.Posicao, (int)CabecaInclinacao.ParaBaixo);
 
-            cabeca.SetarPosicao(Cabeca.ParaCima);
-            Assert.AreEqual(cabeca.Posicao, Cabeca.ParaBaixo);
+            cabeca.SetarInclinacao(CabecaInclinacao.ParaCima);
+            Assert.AreEqual(cabeca.Posicao, (int)CabecaInclinacao.ParaBaixo);
         }
     }
 }

@@ -15,12 +15,12 @@ namespace Robo.Models
 
         public int Rotacao { get; set; }
 
-        public virtual void SetarRotacao(int rotacao)
+        protected void SetarRotacao(int rotacao)
         {
             if (!OpcoesRotacao.Contains(rotacao)) return;
             var index = Array.IndexOf(OpcoesRotacao, rotacao);
             var indexAtual = Array.IndexOf(OpcoesRotacao, Rotacao);
-            if (index + 1 != indexAtual && index - 1 != indexAtual) return;
+            if (index + 1 != indexAtual && index - 1 != indexAtual && index != indexAtual) return;
             Rotacao = OpcoesRotacao[index];
         }
     }

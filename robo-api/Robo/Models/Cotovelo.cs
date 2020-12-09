@@ -1,18 +1,22 @@
-﻿namespace Robo.Models
+﻿using Robo.Infraestrutura.Enums.Bracos;
+
+namespace Robo.Models
 {
     public class Cotovelo : Membro
     {
-        public static int EmRepouso = 1;
-        public static int LevementeContraido = 2;
-        public static int Contraido = 3;
-        public static int FortementeContraido = 4;
-
         private Cotovelo()
-            : base(new[] { EmRepouso, LevementeContraido, Contraido, FortementeContraido })
+            : base(new[] {
+                (int)CotoveloPosicao.EmRepouso,
+                (int)CotoveloPosicao.LevementeContraido,
+                (int)CotoveloPosicao.Contraido,
+                (int)CotoveloPosicao.FortementeContraido }
+            )
         {
-            Posicao = EmRepouso;
+            Posicao = (int)CotoveloPosicao.EmRepouso;
         }
 
         public static Cotovelo Criar() => new Cotovelo();
+
+        public void SetarPosicao(CotoveloPosicao posicao) => SetarPosicao((int)posicao);
     }
 }

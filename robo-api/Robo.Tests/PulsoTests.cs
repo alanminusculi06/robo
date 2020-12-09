@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Robo.Infraestrutura.Enums.Bracos;
 using Robo.Models;
 
 namespace Robo.Tests
@@ -12,7 +13,7 @@ namespace Robo.Tests
             var pulso = Pulso.Criar();
 
             Assert.IsNotNull(pulso);
-            Assert.AreEqual(pulso.Posicao, Pulso.EmRepouso);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.EmRepouso);
         }
 
         [TestMethod]
@@ -20,29 +21,29 @@ namespace Robo.Tests
         {
             var pulso = Pulso.Criar();
 
-            pulso.SetarPosicao(2);
-            Assert.AreEqual(pulso.Posicao, Pulso.QuarentaECincoGrausNegativo);
+            pulso.SetarPosicao(PulsoRotacao.QuarentaECincoGrausNegativo);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.QuarentaECincoGrausNegativo);
 
-            pulso.SetarPosicao(1);
-            Assert.AreEqual(pulso.Posicao, Pulso.NoventaGrausNegativo);
+            pulso.SetarPosicao(PulsoRotacao.NoventaGrausNegativo);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.NoventaGrausNegativo);
 
-            pulso.SetarPosicao(2);
-            Assert.AreEqual(pulso.Posicao, Pulso.QuarentaECincoGrausNegativo);
+            pulso.SetarPosicao(PulsoRotacao.QuarentaECincoGrausNegativo);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.QuarentaECincoGrausNegativo);
 
-            pulso.SetarPosicao(3);
-            Assert.AreEqual(pulso.Posicao, Pulso.EmRepouso);
+            pulso.SetarPosicao(PulsoRotacao.EmRepouso);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.EmRepouso);
 
-            pulso.SetarPosicao(4);
-            Assert.AreEqual(pulso.Posicao, Pulso.QuarentaECincoGraus);
+            pulso.SetarPosicao(PulsoRotacao.QuarentaECincoGraus);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.QuarentaECincoGraus);
 
-            pulso.SetarPosicao(5);
-            Assert.AreEqual(pulso.Posicao, Pulso.NoventaGraus);
+            pulso.SetarPosicao(PulsoRotacao.NoventaGraus);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.NoventaGraus);
 
-            pulso.SetarPosicao(6);
-            Assert.AreEqual(pulso.Posicao, Pulso.CentoETrintaECincoGraus);
+            pulso.SetarPosicao(PulsoRotacao.CentoETrintaECincoGraus);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.CentoETrintaECincoGraus);
 
-            pulso.SetarPosicao(7);
-            Assert.AreEqual(pulso.Posicao, Pulso.CentoEOitentaGraus);
+            pulso.SetarPosicao(PulsoRotacao.CentoEOitentaGraus);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.CentoEOitentaGraus);
         }
 
         [TestMethod]
@@ -52,10 +53,10 @@ namespace Robo.Tests
 
             Assert.IsNotNull(pulso);
             Assert.IsNotNull(pulso.Posicao);
-            Assert.AreEqual(pulso.Posicao, Pulso.EmRepouso);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.EmRepouso);
 
-            pulso.SetarPosicao(10);
-            Assert.AreEqual(pulso.Posicao, Pulso.EmRepouso);
+            pulso.SetarPosicao((PulsoRotacao)10);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.EmRepouso);
         }
 
         [TestMethod]
@@ -65,10 +66,10 @@ namespace Robo.Tests
 
             Assert.IsNotNull(pulso);
             Assert.IsNotNull(pulso.Posicao);
-            Assert.AreEqual(pulso.Posicao, Pulso.EmRepouso);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.EmRepouso);
 
-            pulso.SetarPosicao(3);
-            Assert.AreEqual(pulso.Posicao, Pulso.EmRepouso);
+            pulso.SetarPosicao((PulsoRotacao)3);
+            Assert.AreEqual(pulso.Posicao, (int)PulsoRotacao.EmRepouso);
         }
     }
 }

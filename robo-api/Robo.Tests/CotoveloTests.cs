@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Robo.Infraestrutura.Enums.Bracos;
 using Robo.Models;
 
 namespace Robo.Tests
@@ -13,7 +14,7 @@ namespace Robo.Tests
 
             Assert.IsNotNull(cotovelo);
             Assert.IsNotNull(cotovelo.Posicao);
-            Assert.AreEqual(cotovelo.Posicao, Cotovelo.EmRepouso);
+            Assert.AreEqual(cotovelo.Posicao, (int)CotoveloPosicao.EmRepouso);
         }
 
         [TestMethod]
@@ -21,23 +22,23 @@ namespace Robo.Tests
         {
             var cotovelo = Cotovelo.Criar();
 
-            cotovelo.SetarPosicao(2);
-            Assert.AreEqual(cotovelo.Posicao, Cotovelo.LevementeContraido);
+            cotovelo.SetarPosicao(CotoveloPosicao.LevementeContraido);
+            Assert.AreEqual(cotovelo.Posicao, (int)CotoveloPosicao.LevementeContraido);
 
-            cotovelo.SetarPosicao(3);
-            Assert.AreEqual(cotovelo.Posicao, Cotovelo.Contraido);
+            cotovelo.SetarPosicao(CotoveloPosicao.Contraido);
+            Assert.AreEqual(cotovelo.Posicao, (int)CotoveloPosicao.Contraido);
 
-            cotovelo.SetarPosicao(4);
-            Assert.AreEqual(cotovelo.Posicao, Cotovelo.FortementeContraido);
+            cotovelo.SetarPosicao(CotoveloPosicao.FortementeContraido);
+            Assert.AreEqual(cotovelo.Posicao, (int)CotoveloPosicao.FortementeContraido);
 
-            cotovelo.SetarPosicao(3);
-            Assert.AreEqual(cotovelo.Posicao, Cotovelo.Contraido);
+            cotovelo.SetarPosicao(CotoveloPosicao.Contraido);
+            Assert.AreEqual(cotovelo.Posicao, (int)CotoveloPosicao.Contraido);
 
-            cotovelo.SetarPosicao(2);
-            Assert.AreEqual(cotovelo.Posicao, Cotovelo.LevementeContraido);
+            cotovelo.SetarPosicao(CotoveloPosicao.LevementeContraido);
+            Assert.AreEqual(cotovelo.Posicao, (int)CotoveloPosicao.LevementeContraido);
 
-            cotovelo.SetarPosicao(1);
-            Assert.AreEqual(cotovelo.Posicao, Cotovelo.EmRepouso);
+            cotovelo.SetarPosicao(CotoveloPosicao.EmRepouso);
+            Assert.AreEqual(cotovelo.Posicao, (int)CotoveloPosicao.EmRepouso);
         }
 
         [TestMethod]
@@ -45,8 +46,8 @@ namespace Robo.Tests
         {
             var cotovelo = Cotovelo.Criar();
 
-            cotovelo.SetarPosicao(5);
-            Assert.AreEqual(cotovelo.Posicao, Cotovelo.EmRepouso);
+            cotovelo.SetarPosicao((CotoveloPosicao)5);
+            Assert.AreEqual(cotovelo.Posicao, (int)CotoveloPosicao.EmRepouso);
         }
 
         [TestMethod]
@@ -56,10 +57,10 @@ namespace Robo.Tests
 
             Assert.IsNotNull(cotovelo);
             Assert.IsNotNull(cotovelo.Posicao);
-            Assert.AreEqual(cotovelo.Posicao, Cotovelo.EmRepouso);
+            Assert.AreEqual(cotovelo.Posicao, (int)CotoveloPosicao.EmRepouso);
 
-            cotovelo.SetarPosicao(3);
-            Assert.AreEqual(cotovelo.Posicao, Cotovelo.EmRepouso);
+            cotovelo.SetarPosicao((CotoveloPosicao)3);
+            Assert.AreEqual(cotovelo.Posicao, (int)CotoveloPosicao.EmRepouso);
         }
     }
 }

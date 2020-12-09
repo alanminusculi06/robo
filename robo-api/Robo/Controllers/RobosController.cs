@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Robo.Infraestrutura.Enums.Bracos;
+using Robo.Infraestrutura.Enums.Cabecas;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -43,22 +45,22 @@ namespace Robo.Controllers
         private void AtualizarCabeca(Models.Robo robo, Models.Robo novo)
         {
             if (robo == null || novo == null) return;
-            robo.Cabeca.SetarPosicao(novo.Cabeca.Posicao);
-            robo.Cabeca.SetarRotacao(novo.Cabeca.Rotacao);
+            robo.Cabeca.SetarInclinacao((CabecaInclinacao)novo.Cabeca.Posicao);
+            robo.Cabeca.SetarRotacao((CabecaRotacao)novo.Cabeca.Rotacao);
         }
 
         private void AtualizarBracoDireito(Models.Robo robo, Models.Robo novo)
         {
             if (robo == null || novo == null) return;
-            robo.BracoDireito.MovimentarCotovelo(novo.BracoDireito.Cotovelo.Posicao);
-            robo.BracoDireito.MovimentarPulso(novo.BracoDireito.Pulso.Posicao);
+            robo.BracoDireito.MovimentarCotovelo((CotoveloPosicao)novo.BracoDireito.Cotovelo.Posicao);
+            robo.BracoDireito.MovimentarPulso((PulsoRotacao)novo.BracoDireito.Pulso.Posicao);
         }
 
         private void AtualizarBracoEsquerdo(Models.Robo robo, Models.Robo novo)
         {
             if (robo == null || novo == null) return;
-            robo.BracoEsquerdo.MovimentarCotovelo(novo.BracoEsquerdo.Cotovelo.Posicao);
-            robo.BracoEsquerdo.MovimentarPulso(novo.BracoEsquerdo.Pulso.Posicao);
+            robo.BracoEsquerdo.MovimentarCotovelo((CotoveloPosicao)novo.BracoEsquerdo.Cotovelo.Posicao);
+            robo.BracoEsquerdo.MovimentarPulso((PulsoRotacao)novo.BracoEsquerdo.Pulso.Posicao);
         }
     }
 }
